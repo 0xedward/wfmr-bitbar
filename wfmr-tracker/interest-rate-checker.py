@@ -62,7 +62,7 @@ if __name__ == '__main__':
 
             if not first_run and most_recent_rate != -1.0 and most_recent_pts != -1.0 and (most_recent_rate > float(current_interest_rate.strip("%")) or most_recent_pts > float(current_discount_points)):
                 message = client.messages.create(
-                    body="Wells Fargo 30yr Fixed Rate dropped from {old_rate}% {old_pts} pts to {new_rate} {new_pts} pts".format(old_rate=most_recent_rate, old_pts=most_recent_pts, new_rate=current_interest_rate, new_pts=current_discount_points),
+                    body="Wells Fargo 30yr Fixed Rate changed from {old_rate}% {old_pts} pts to {new_rate} {new_pts} pts".format(old_rate=most_recent_rate, old_pts=most_recent_pts, new_rate=current_interest_rate, new_pts=current_discount_points),
                     from_=TWILIO_PHONE_NUMBER,
                     to=YOUR_PHONE_NUMBER)
                 output_log.write("{time} | Wells Fargo 30yr Fixed | {rate} | {pts} | Twilio Notification Sent \n".format(time=current_time, rate=current_interest_rate, pts=current_discount_points));
